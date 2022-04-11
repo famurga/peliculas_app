@@ -9,9 +9,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final moviesProvider = Provider.of<MoviesProvider>(
-      context,
-    );
+    final moviesProvider = Provider.of<MoviesProvider>(context,);
 
     print(moviesProvider.onDisplayMovies);
 
@@ -21,10 +19,10 @@ class HomeScreen extends StatelessWidget {
           elevation: 15,
           actions: [
             IconButton(
-                onPressed: ()=> showSearch(context: context, delegate: MovieSearchDelegate()), 
-                icon: const Icon(Icons.search_outlined),
-                
-                )
+              onPressed: () =>
+                  showSearch(context: context, delegate: MovieSearchDelegate()),
+              icon: const Icon(Icons.search_outlined),
+            )
           ],
         ),
         body: SingleChildScrollView(
@@ -33,7 +31,10 @@ class HomeScreen extends StatelessWidget {
               //Tarjetas principales
               CardSwiper(movies: moviesProvider.onDisplayMovies),
               //Listado horizaontal de peliculas
-              MovieSlider(movies: moviesProvider.popularMovies, title: 'Populares',onNextPage: () =>moviesProvider.getPopulaMovies() ),
+              MovieSlider(
+                  movies: moviesProvider.popularMovies,
+                  title: 'Populares',
+                  onNextPage: () => moviesProvider.getPopulaMovies()),
               /* MovieSlider(movies: moviesProvider.popularMovies, title: 'Picantes'),
               MovieSlider(movies: moviesProvider.popularMovies), */
               /*  MovieSlider(),
